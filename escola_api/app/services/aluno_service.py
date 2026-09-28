@@ -22,6 +22,8 @@ def criar_aluno(dados):
 
 def atualizar_aluno(aluno_id, dados):
     aluno_repository.buscar_por_id(aluno_id)
+    if not aluno:
+        raise ValueError("Aluno não encontrado")
     campos = ["nome", "email", "cpf"]
     for campo in campos:
         if not dados.get(campo):
